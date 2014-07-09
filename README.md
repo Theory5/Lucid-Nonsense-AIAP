@@ -1,4 +1,4 @@
-MalwareDetectionPlatform
+Lucid Nonsense
 ========================
 
 Repo for the Advanced Malware Detection Platform. This platform, which currently is being built under the name Lucid Nonsence - Advanced Intellegence Analysis Platform,
