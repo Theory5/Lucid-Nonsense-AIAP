@@ -1,3 +1,6 @@
+#this file is for custom definitions in the pattern file for logstash. Either append what's below to your current 
+#pattern file, or ensure your logstash config server is pointed to a second pattern file
+
 IPTABLES_DENIED %{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:_host} kernel: iptables denied: IN=(?<in>eth0) OUT= MAC=(?<mac_addr>\S+) SRC=%{IP:src_ip} DST=%{IP:dst_ip} LEN=\d+ TOS=0x\d+ PREC=0x\d+ TTL=\d+ ID=\d+(?:\sDF)? PROTO=(?<proto>\S+) SPT=(?<src_port>\d+) DPT=(?<dst_port>\d+)(?:\sWINDOW=\d+)?(?:\sRES=0x\d+)?(?:\s[ACKSYNFIRT]{3})+(?:\sURGP=\d)?
 KIPPO_TIMESTAMP (?<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})
 KIPPO_BODY_SSHSERVICE \[SSHService ssh-userauth on HoneyPotTransport,\d+,%{IP:src_ip>}\]
