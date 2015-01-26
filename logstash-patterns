@@ -6,5 +6,8 @@ KIPPO_TIMESTAMP (?<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})
 
 #I found that the grok filter below did not work. It would not properly parse the IP's so I am building a new one
 ## KIPPO_BODY_SSHSERVICE \[SSHService ssh-userauth on HoneyPotTransport,\d+,%{IP:src_ip>}\]
+#This is the new Regex 
+
+KIPPO_BODY_SSHSERVICE \[(?<SSHType>SSHService\s(ssh-connection|ssh-userauth)\son\sHoneyPotTransport|HoneyPotTransport|kippo.core.ssh.HoneyPotSSHFactory|-),(?<number>\d+),%{IP:src_ip>}\]
 
 KIPPO_MSG_LOGIN login\sattempt\s\[(?<src_user>\S+)/(?<src_pwd>\S+)\]\s(?<outcome>succeeded|failed)
