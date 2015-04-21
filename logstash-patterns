@@ -8,6 +8,9 @@ KIPPO_TIMESTAMP (?<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})
 ## KIPPO_BODY_SSHSERVICE \[SSHService ssh-userauth on HoneyPotTransport,\d+,%{IP:src_ip>}\]
 #This is the new Regex which accounts for the newer version of kippo. Please report if this doesn't work.
 
-KIPPO_BODY_SSHSERVICE \[(?<SSHType>SSHService\s(ssh-connection|ssh-userauth)\son\sHoneyPotTransport|HoneyPotTransport|kippo.core.ssh.HoneyPotSSHFactory|-),(?<number>\d+),%{IP:src_ip>}\]
+##KIPPO_BODY_SSHSERVICE \[(?<SSHType>SSHService\s(ssh-connection|ssh-userauth)\son\sHoneyPotTransport|HoneyPotTransport|kippo.core.ssh.HoneyPotSSHFactory|-),(?<number>\d+),%{IP:src_ip>}\]
+## In order to make this more compatible with elasticsearch dynamic mapping, I am altering multiple fields
+
+KIPPO_BODY_SSHSERVICE \[(?<SSHType>SSHService\s(ssh-connection|ssh-userauth)\son\sHoneyPotTransport|HoneyPotTransport|kippo.core.ssh.HoneyPotSSHFactory|-)\]
 
 KIPPO_MSG_LOGIN login\sattempt\s\[(?<src_user>\S+)/(?<src_pwd>\S+)\]\s(?<outcome>succeeded|failed)
