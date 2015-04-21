@@ -1,1 +1,66 @@
-## This is for setting up dynamic mapping for the kippo logs
+## This is for setting up dynamic mapping for the kippo logs using the "kippo" type
+## dumped real mapping to build off of
+
+
+{"logstash-2015.04.21":
+	{"mappings":
+		{"kippo":
+			{"dynamic_templates":[
+				{"string_fields":
+	{"mapping":{
+		"index":"analyzed",
+		"omit_norms":true,
+		"type":"string",
+			"fields":{
+				"raw":{
+				"index":"not_analyzed",
+				"ignore_above":256,
+				"type":"string"}
+				}
+		},
+		"match":"*",
+		"match_mapping_type":"string"
+		}
+		}],
+		"_all":
+		{"enabled":true},
+		"properties":{
+		"@timestamp":{
+		"type":"date",
+		"format":"dateOptionalTime"
+		},
+		"@version":{
+			"type":"string",
+			"index":"not_analyzed"
+			},
+"file":{
+"type":"string","norms":{
+"enabled":false},
+"fields":{
+"raw":{
+"type":"string",
+"index":"not_analyzed",
+"ignore_above":256
+}
+}
+},"geoip":
+{"dynamic":"true","properties":
+{"location":
+{"type":"geo_point"
+}
+}
+},"host":
+{"type":"string","norms":
+{"enabled":false},"fields":
+{"raw":
+{"type":"string","index":"not_analyzed","ignore_above":256
+}
+}
+}
+,"message":{"type":"string","norms":{"enabled":false}
+,"fields":{"raw":{"type":"string","index":"not_analyzed","ignore_above":256}}},"
+offset":{"type":"string","norms":{"enabled":false},"fields":{"raw":{"type":"stri
+ng","index":"not_analyzed","ignore_above":256}}},"tags":{"type":"string","norms"
+:{"enabled":false},"fields":{"raw":{"type":"string","index":"not_analyzed","igno
+re_above":256}}},"type":{"type":"string","norms":{"enabled":false},"fields":{"ra
+w":{"type":"string","index":"not_analyzed","ignore_above":256}}}}}}}}
