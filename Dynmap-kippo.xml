@@ -7,32 +7,32 @@
 		{"kippo":
 			{"dynamic_templates":[
 				{"string_fields":
-	{"mapping":{
-		"index":"analyzed",
-		"omit_norms":true,
-		"type":"string",
-			"fields":{
-				"raw":{
-				"index":"not_analyzed",
-				"ignore_above":256,
-				"type":"string"}
-				}
-		},
-		"match":"*",
-		"match_mapping_type":"string"
-		}
-		}],
-		"_all":
-		{"enabled":true},
-		"properties":{
-		"@timestamp":{
-		"type":"date",
-		"format":"dateOptionalTime"
-		},
-		"@version":{
-			"type":"string",
-			"index":"not_analyzed"
-			},
+					{"mapping":{
+						"index":"analyzed",
+						"omit_norms":true,
+						"type":"string",
+							"fields":{
+								"raw":{
+								"index":"not_analyzed",
+								"ignore_above":256,
+								"type":"string"}
+								}
+						},
+						"match":"*",
+						"match_mapping_type":"string"
+						}
+						}],
+						"_all":{"
+						enabled":true},
+							"properties":{
+								"timestamp":{
+									"type":"date",
+									"format":"dateOptionalTime"
+									},
+								"version":{
+									"type":"string",
+									"index":"not_analyzed"
+									},
 "file":{
 "type":"string","norms":{
 "enabled":false},
